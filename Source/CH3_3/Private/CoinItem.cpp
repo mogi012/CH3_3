@@ -47,7 +47,7 @@ ABigCoinItem::ABigCoinItem()
 	PointValue = 50;
 	ItemType = TEXT("BigCoin");
 
-	StaticMesh->SetRelativeScale3D(FVector(1.4f));
+	StaticMesh->SetRelativeScale3D(FVector(1.5f));
 	Collision->SetSphereRadius(110.0f);
 }
 
@@ -59,7 +59,5 @@ ASmallCoinItem::ASmallCoinItem()
 	StaticMesh->SetRelativeScale3D(FVector(0.8f));
 	Collision->SetSphereRadius(80.0f);
 
-	bUseColorOverride = true;
-	ItemColor = FLinearColor(0.75f, 0.78f, 0.82f);
 }
 

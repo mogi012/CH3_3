@@ -1,6 +1,9 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 
+// Fill out your copyright notice in the Description page of Project Settings.
+
+
 #include "MineItem.h"
 
 #include "Components/SphereComponent.h"
@@ -19,10 +22,10 @@ AMineItem::AMineItem()
 	if (BombMesh.Succeeded())
 	{
 		StaticMesh->SetStaticMesh(BombMesh.Object);
-		StaticMesh->SetRelativeScale3D(FVector(4.0f));
+		StaticMesh->SetRelativeScale3D(FVector(5.0f));
 	}
 
-	Collision->SetSphereRadius(60.0f);
+	Collision->InitSphereRadius(40.0f);
 	ExplosionCollision = CreateDefaultSubobject<USphereComponent>(TEXT("ExplosionCollision"));
 	ExplosionCollision->InitSphereRadius(ExplosionRadius);
 	ExplosionCollision->SetCollisionProfileName(TEXT("OverlapAllDynamic"));
