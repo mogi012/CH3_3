@@ -8,6 +8,9 @@
 
 class UInputMappingContext;
 class UInputAction;
+class USpartaHUDWidget;
+class USpartaMainMenuWidget;
+class USpartaGameOverWidget;
 
 UCLASS()
 class CH3_3_API ASpartaPlayerController : public APlayerController
@@ -32,6 +35,30 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Input")
 	UInputAction* SprintAction;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
+	TSubclassOf<USpartaHUDWidget> HUDWidgetClass;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
+	TSubclassOf<USpartaMainMenuWidget> MainMenuWidgetClass;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
+	TSubclassOf<USpartaGameOverWidget> GameOverWidgetClass;
+
 protected:
 	virtual void BeginPlay() override;
+
+	UPROPERTY()
+	USpartaHUDWidget* HUDWidget;
+
+	UPROPERTY()
+	USpartaMainMenuWidget* MainMenuWidget;
+
+	UPROPERTY()
+	USpartaGameOverWidget* GameOverWidget;
+
+	UFUNCTION()
+	void HandleGameFinished(bool bCleared);
+
+	void ShowMainMenu();
+	void ShowHUD();
 };
